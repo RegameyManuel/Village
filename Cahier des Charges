@@ -1,0 +1,66 @@
+# Village
+Fil rouge du CDA
+
+        
+<h1>Cahier des charges</h1>
+<h2>Objectifs</h2>
+<p>L’entreprise Village Green distribue du matériel musical. Elle a une activité de grossiste, c'est-à-dire de revente aux magasins spécialisés. Elle peut sous certaines conditions procéder à la vente aux particuliers et elle souhaiterait développer cette activité.</p>
+<p>L’entreprise Village Green souhaite faire évoluer son système de gestion des commandes et de facturation. Actuellement, l’organisation utilise un système qui ne donne pas entière satisfaction. L’informatisation de la totalité du processus depuis la mise à jour du catalogue, de la commande jusqu’au paiement, a pour objectif de fluidifier le workflow de l’entreprise.</p>
+<p>La société souhaite avoir un site d'e-commerce permettant aux clients de visualiser l'ensemble du catalogue et de passer des commandes en ligne.</p>
+<h2>L’existant</h2>
+<p>Les produits référencés sont achetés directement auprès des fournisseurs (constructeurs ou importateurs). Dans le catalogue de l'entreprise tous les produits sont organisés en Rubrique/SousRubrique. Chaque produit doit être décrit par un libellé court et un libellé long (description), une référence fournisseur, un prix d'achat, une photo.</p>
+<p>L'équipe qui gère les relations avec les fournisseurs tient à jour le catalogue. Elle met à jour le stock, valide ou pas la publication de nouveaux produits et désactive d'anciens produits. Elle gère aussi l'arborescence Rubrique/SousRubrique.</p>
+<p>Tous les prix sont notés hors taxes. Le prix de vente est calculé à partir du prix d'achat auquel on applique un coefficient en fonction de la catégorie du client (Particulier ou Professionnel). Les coefficients sont attribués aux clients au moment de leur création et peuvent être ajustés par le service commercial. Les clients particuliers ont tous le même coefficient.</p>
+<p>A chaque client est attribué un commercial. Un commercial spécifique s'occupe des clients particuliers </p>
+<p>Quand un client professionnel passe une commande, il peut être appliqué une réduction supplémentaire sur le total, cette réduction est négociée par le service commercial. </p>
+<p>Au moment de la commande, il faut prendre en compte l'adresse de livraison et l'adresse de facturation. Un bon de livraison et une facture doivent pouvoir être éditées. Pour les clients particuliers, un paiement à la commande est exigé. Pour les clients professionnels, le paiement se fait en différé (par virement ou par chèque). Dans les deux cas de figure, on notera l'information concernant le règlement.</p>
+<p>Chaque client se voit attribuer une référence qui servira à l'identifier lors des échanges avec les différents services de l'entreprise (après-vente, commercial, comptabilité) </p>
+<p>Une commande expédiée même partiellement fait l’objet d’une facturation de l’ensemble de la commande.</p>
+<p>Les commandes et les documents associés sont conservés pendant trois ans. </p>
+<h2>Attendus</h2>
+<p>Pour développer son système de vente, l'entreprise souhaiterait mettre en place un site web (e-commerce) accessible aux particuliers et aux professionnels. Cette solution doit offrir les services suivants:</p>
+<ul>
+<li>Consultation du catalogue</li>
+<li>Ajout/Suppression de produit dans le panier</li>
+<li>Inscription d'un nouvel utilisateur sur le site (pour les particuliers)</li>
+<li>Connexion/Deconnexion d'un utilisateur pour accéder à son profil</li>
+<li>Validation du panier pour créer une nouvelle commande ()</li>
+<li>Visualisation des anciennes commandes</li>
+</ul>
+<p>Le site doit bien évidement être lisible sur les principaux navigateurs et il doit s'adapter aux navigateurs mobiles.</p>
+<p>Pour son usage interne, l'entreprise souhaite s'équiper d'un logiciel de gestion commerciale. Ce logiciel sera déployé sur les postes informatiques de l'entreprise</p>
+<!-- 1. Un module de gestion des commandes réservé au service commercial : 
+ * Créer une nouvelle commande
+ * Ajouter des produits dans la commande
+ * Connaître l’état de la commande (saisie, annulée, en préparation, expédiée, facturée, retard de paiement, soldée)
+ * Consulter les clients en retard de paiement à une date donnée
+ * Modifier ou annuler la commande avant qu’elle ne soit en préparation -->
+<ol>
+<li>
+<p>Un module de gestion des produits réservé au service de gestion des produits doit permettre :</p>
+<ul>
+<li>D’ajouter des produits</li>
+<li>D’en supprimer</li>
+<li>D’en modifier les caractéristiques (libellé, caractéristique, tarif)</li>
+<li>De modifier l'arborescence des catégories</li>
+</ul>
+</li>
+<li>
+<p>Un tableau de bord de gestion permettra d'afficher des indicateurs de performance</p>
+<ul>
+<li>Chiffre d'affaires mois par mois pour une année sélectionnée</li>
+<li>Chiffre d'affaires généré pour un fournisseur</li>
+<li>TOP 10 des produits les plus commandés pour une année sélectionnée (référence et nom du produit, quantité commandée, fournisseur)</li>
+<li>TOP 10 des produits les plus rémunérateurs pour une année sélectionnée (référence et nom du produit, marge, fournisseur)</li>
+<li>Top 10 des clients en nombre de commandes ou chiffre d'affaires</li>
+<li>Répartition du chiffre d'affaires par type de client</li>
+<li>Nombre de commandes en cours de livraison.</li>
+</ul>
+</li>
+</ol>
+<p>L'entreprise souhaite proposer à ses clients particuliers une application mobile. Cette application doit permettre de:</p>
+<ul>
+<li>Consulter le catalogue (parcourir les rubriques et les produits)</li>
+<li>Se connecter pour consulter l'historique des commandes</li>
+<li>Consulter son profil</li>
+</ul></div>
