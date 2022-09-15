@@ -1,0 +1,33 @@
+body {
+    background-color: #ffddbc;
+}
+
+h1,
+p {
+    color: #453117;
+}
+
+.form-control {
+    background-color: rgb(187, 247, 187);
+}
+
+a {
+    color: green;
+}
+
+.logo_village {
+    text-align: center;
+}
+
+ul.horizontal {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: 2em;
+    margin-right: 2em;
+    background-color: lightgreen;
+    color: green;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
