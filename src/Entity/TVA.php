@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\TVARepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TVARepository::class)]
 class TVA
@@ -18,6 +19,7 @@ class TVA
     private ?string $tva_nom = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
+    #[Assert\PositiveOrZero()]
     private ?string $tva_taux = null;
 
     public function getId(): ?int

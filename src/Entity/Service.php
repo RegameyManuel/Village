@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ServiceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
 class Service
@@ -20,6 +21,7 @@ class Service
     private ?string $serv_telephone = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Email(['message' => '"{{ value }}" : adresse email invalide.'])]
     private ?string $serv_mail = null;
 
     public function getId(): ?int

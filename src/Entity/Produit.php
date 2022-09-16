@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProduitRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 class Produit
@@ -15,30 +16,38 @@ class Produit
     private ?int $id = null;
 
     #[ORM\Column(length: 50, nullable: true)]
+    #[Assert\Length(max:50)]
     private ?string $prod_marque = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(min:1, max:50)]
     private ?string $prod_modele = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(min:1, max:50)]
     private ?string $prod_finition = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(max:255)]
     private ?string $prod_lib_court = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $prod_lib_long = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+    #[Assert\NotNull()]
+    #[Assert\PositiveOrZero()]
     private ?string $prod_prix = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(max:255)]
     private ?string $prod_photo = null;
 
     #[ORM\Column]
     private ?bool $prod_actif = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Length(min:1, max:50)]
     private ?string $prod_reference = null;
 
     public function getId(): ?int

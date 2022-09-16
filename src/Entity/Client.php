@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ClientRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
 class Client
@@ -27,6 +28,7 @@ class Client
     private ?string $cli_telephone = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Email(['message' => '"{{ value }}" : adresse email invalide.'])]
     private ?string $cli_mail = null;
 
     #[ORM\Column(length: 50, nullable: true)]

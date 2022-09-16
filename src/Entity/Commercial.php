@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CommercialRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommercialRepository::class)]
 class Commercial
@@ -23,6 +24,7 @@ class Commercial
     private ?string $com_telephone = null;
 
     #[ORM\Column(length: 50)]
+    #[Assert\Email(['message' => '"{{ value }}" : adresse email invalide.'])]
     private ?string $com_mail = null;
 
     #[ORM\Column]
