@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Produit;
+use App\Entity\Rubrique;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,6 +22,7 @@ class CatalogueType extends AbstractType
             ->add('prod_photo')
             ->add('prod_actif')
             ->add('prod_reference')
+            ->add('rubriq_nom')
         ;
     }
 

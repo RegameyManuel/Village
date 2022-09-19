@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\FournisseurRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -50,6 +52,18 @@ class Fournisseur
 
     #[ORM\Column]
     private ?bool $fourni_importateur = null;
+
+    #[ORM\OneToMany(mappedBy: 'prod_fournisseur', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    #[ORM\ManyToOne(inversedBy: 'fournisseurs')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Service $fourni_service = null;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -196,6 +210,48 @@ class Fournisseur
     public function setFourniImportateur(bool $fourni_importateur): self
     {
         $this->fourni_importateur = $fourni_importateur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): self
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setProdFournisseur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): self
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getProdFournisseur() === $this) {
+                $produit->setProdFournisseur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getFourniService(): ?Service
+    {
+        return $this->fourni_service;
+    }
+
+    public function setFourniService(?Service $fourni_service): self
+    {
+        $this->fourni_service = $fourni_service;
 
         return $this;
     }

@@ -50,6 +50,13 @@ class Produit
     #[Assert\Length(min:1, max:50)]
     private ?string $prod_reference = null;
 
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Rubrique $prod_rubrique = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?Fournisseur $prod_fournisseur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -159,6 +166,30 @@ class Produit
     public function setProdReference(string $prod_reference): self
     {
         $this->prod_reference = $prod_reference;
+
+        return $this;
+    }
+
+    public function getProdRubrique(): ?Rubrique
+    {
+        return $this->prod_rubrique;
+    }
+
+    public function setProdRubrique(?Rubrique $prod_rubrique): self
+    {
+        $this->prod_rubrique = $prod_rubrique;
+
+        return $this;
+    }
+
+    public function getProdFournisseur(): ?Fournisseur
+    {
+        return $this->prod_fournisseur;
+    }
+
+    public function setProdFournisseur(?Fournisseur $prod_fournisseur): self
+    {
+        $this->prod_fournisseur = $prod_fournisseur;
 
         return $this;
     }

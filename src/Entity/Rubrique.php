@@ -19,15 +19,25 @@ class Rubrique
     #[ORM\Column(length: 50)]
     private ?string $rubriq_nom = null;
 
-    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'parent')]
+
+
+    #[ORM\OneToMany(mappedBy: 'prod_rubrique', targetEntity: Produit::class)]
+    private Collection $produits;
+
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'rubriq_enfants')]
     private ?self $rubriq_parente = null;
 
     #[ORM\OneToMany(mappedBy: 'rubriq_parente', targetEntity: self::class)]
-    private Collection $parent;
+    private Collection $rubriq_enfants;
+
+
+
+
 
     public function __construct()
     {
-        $this->parent = new ArrayCollection();
+        $this->produits = new ArrayCollection();
+        $this->rubriq_enfants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -47,6 +57,40 @@ class Rubrique
         return $this;
     }
 
+
+
+
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): self
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setProdRubrique($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): self
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getProdRubrique() === $this) {
+                $produit->setProdRubrique(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function getRubriqParente(): ?self
     {
         return $this->rubriq_parente;
@@ -62,30 +106,33 @@ class Rubrique
     /**
      * @return Collection<int, self>
      */
-    public function getParent(): Collection
+    public function getRubriqEnfants(): Collection
     {
-        return $this->parent;
+        return $this->rubriq_enfants;
     }
 
-    public function addParent(self $parent): self
+    public function addRubriqEnfant(self $rubriqEnfant): self
     {
-        if (!$this->parent->contains($parent)) {
-            $this->parent->add($parent);
-            $parent->setRubriqParente($this);
+        if (!$this->rubriq_enfants->contains($rubriqEnfant)) {
+            $this->rubriq_enfants->add($rubriqEnfant);
+            $rubriqEnfant->setRubriqParente($this);
         }
 
         return $this;
     }
 
-    public function removeParent(self $parent): self
+    public function removeRubriqEnfant(self $rubriqEnfant): self
     {
-        if ($this->parent->removeElement($parent)) {
+        if ($this->rubriq_enfants->removeElement($rubriqEnfant)) {
             // set the owning side to null (unless already changed)
-            if ($parent->getRubriqParente() === $this) {
-                $parent->setRubriqParente(null);
+            if ($rubriqEnfant->getRubriqParente() === $this) {
+                $rubriqEnfant->setRubriqParente(null);
             }
         }
 
         return $this;
     }
+
+
+
 }

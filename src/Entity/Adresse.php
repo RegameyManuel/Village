@@ -35,6 +35,9 @@ class Adresse
     #[ORM\Column]
     private ?bool $adr_livraison = null;
 
+    #[ORM\ManyToOne(inversedBy: 'cli_adresse')]
+    private ?Client $adr_client_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class Adresse
     public function setAdrLivraison(bool $adr_livraison): self
     {
         $this->adr_livraison = $adr_livraison;
+
+        return $this;
+    }
+
+    public function getAdrClientId(): ?Client
+    {
+        return $this->adr_client_id;
+    }
+
+    public function setAdrClientId(?Client $adr_client_id): self
+    {
+        $this->adr_client_id = $adr_client_id;
 
         return $this;
     }

@@ -20,6 +20,10 @@ class Facture
     #[ORM\Column(length: 255)]
     private ?string $fact_sauvegarde = null;
 
+    #[ORM\OneToOne(inversedBy: 'commande_fact_id', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Commande $fact_commande_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +49,18 @@ class Facture
     public function setFactSauvegarde(string $fact_sauvegarde): self
     {
         $this->fact_sauvegarde = $fact_sauvegarde;
+
+        return $this;
+    }
+
+    public function getFactCommandeId(): ?Commande
+    {
+        return $this->fact_commande_id;
+    }
+
+    public function setFactCommandeId(Commande $fact_commande_id): self
+    {
+        $this->fact_commande_id = $fact_commande_id;
 
         return $this;
     }

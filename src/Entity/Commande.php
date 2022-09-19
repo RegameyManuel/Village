@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CommandeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -37,6 +39,21 @@ class Commande
 
     #[ORM\Column]
     private ?bool $commande_archive = null;
+
+    #[ORM\OneToMany(mappedBy: 'detail_commande_id', targetEntity: DetailCommande::class, orphanRemoval: true)]
+    private Collection $commande_detail;
+
+    #[ORM\OneToOne(mappedBy: 'fact_commande_id', cascade: ['persist', 'remove'])]
+    private ?Facture $commande_fact_id = null;
+
+    #[ORM\OneToMany(mappedBy: 'bl_commande_id', targetEntity: Bl::class, orphanRemoval: true)]
+    private Collection $commande_bl_liste;
+
+    public function __construct()
+    {
+        $this->commande_detail = new ArrayCollection();
+        $this->commande_bl_liste = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -135,6 +152,83 @@ class Commande
     public function setCommandeArchive(bool $commande_archive): self
     {
         $this->commande_archive = $commande_archive;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DetailCommande>
+     */
+    public function getCommandeDetail(): Collection
+    {
+        return $this->commande_detail;
+    }
+
+    public function addCommandeDetail(DetailCommande $commandeDetail): self
+    {
+        if (!$this->commande_detail->contains($commandeDetail)) {
+            $this->commande_detail->add($commandeDetail);
+            $commandeDetail->setDetailCommandeId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommandeDetail(DetailCommande $commandeDetail): self
+    {
+        if ($this->commande_detail->removeElement($commandeDetail)) {
+            // set the owning side to null (unless already changed)
+            if ($commandeDetail->getDetailCommandeId() === $this) {
+                $commandeDetail->setDetailCommandeId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCommandeFactId(): ?Facture
+    {
+        return $this->commande_fact_id;
+    }
+
+    public function setCommandeFactId(Facture $commande_fact_id): self
+    {
+        // set the owning side of the relation if necessary
+        if ($commande_fact_id->getFactCommandeId() !== $this) {
+            $commande_fact_id->setFactCommandeId($this);
+        }
+
+        $this->commande_fact_id = $commande_fact_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Bl>
+     */
+    public function getCommandeBlListe(): Collection
+    {
+        return $this->commande_bl_liste;
+    }
+
+    public function addCommandeBlListe(Bl $commandeBlListe): self
+    {
+        if (!$this->commande_bl_liste->contains($commandeBlListe)) {
+            $this->commande_bl_liste->add($commandeBlListe);
+            $commandeBlListe->setBlCommandeId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommandeBlListe(Bl $commandeBlListe): self
+    {
+        if ($this->commande_bl_liste->removeElement($commandeBlListe)) {
+            // set the owning side to null (unless already changed)
+            if ($commandeBlListe->getBlCommandeId() === $this) {
+                $commandeBlListe->setBlCommandeId(null);
+            }
+        }
 
         return $this;
     }
