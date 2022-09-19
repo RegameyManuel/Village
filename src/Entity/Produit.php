@@ -57,6 +57,9 @@ class Produit
     #[ORM\ManyToOne(inversedBy: 'produits')]
     private ?Fournisseur $prod_fournisseur = null;
 
+    #[ORM\Column]
+    private ?int $prod_stock = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -190,6 +193,18 @@ class Produit
     public function setProdFournisseur(?Fournisseur $prod_fournisseur): self
     {
         $this->prod_fournisseur = $prod_fournisseur;
+
+        return $this;
+    }
+
+    public function getProdStock(): ?int
+    {
+        return $this->prod_stock;
+    }
+
+    public function setProdStock(int $prod_stock): self
+    {
+        $this->prod_stock = $prod_stock;
 
         return $this;
     }
