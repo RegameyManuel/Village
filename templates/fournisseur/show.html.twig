@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fournisseur{% endblock %}
+
+{% block body %}
+    <h1>Fournisseur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fournisseur.id }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_societe</th>
+                <td>{{ fournisseur.fourniSociete }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_nom</th>
+                <td>{{ fournisseur.fourniNom }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_prenom</th>
+                <td>{{ fournisseur.fourniPrenom }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_telephone</th>
+                <td>{{ fournisseur.fourniTelephone }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_mail</th>
+                <td>{{ fournisseur.fourniMail }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_adresse</th>
+                <td>{{ fournisseur.fourniAdresse }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_cp</th>
+                <td>{{ fournisseur.fourniCp }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_ville</th>
+                <td>{{ fournisseur.fourniVille }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_region</th>
+                <td>{{ fournisseur.fourniRegion }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_pays</th>
+                <td>{{ fournisseur.fourniPays }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_constructeur</th>
+                <td>{{ fournisseur.fourniConstructeur ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Fourni_importateur</th>
+                <td>{{ fournisseur.fourniImportateur ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fournisseur_index') }}">back to list</a>
+
+    <a href="{{ path('app_fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>
+
+    {{ include('fournisseur/_delete_form.html.twig') }}
+{% endblock %}

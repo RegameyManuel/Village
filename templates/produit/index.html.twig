@@ -32,11 +32,11 @@
                 <td>{{ produit.prodLibLong }}</td>
                 <td>{{ produit.prodPrix }}</td>
                 <td>{{ produit.prodPhoto }}</td>
-                <td>{{ produit.prodActif ? 'Yes' : 'No' }}</td>
+                <td>{{ produit.prodActif ? 'Oui' : 'Non' }}</td>
                 <td>{{ produit.prodReference }}</td>
                 <td>
-                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
-                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">détail</a>
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">éditer</a>
                 </td>
             </tr>
         {% else %}
@@ -47,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_produit_new') }}">Create new</a>
+    <a href="{{ path('app_produit_new') }}">Nouvel article</a>
 {% endblock %}

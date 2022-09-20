@@ -133,6 +133,9 @@ class Rubrique
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return $this->rubriq_nom;
+    }
 
 }
