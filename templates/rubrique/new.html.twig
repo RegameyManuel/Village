@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Rubrique{% endblock %}
+{% block title %}Nouvelle Rubrique{% endblock %}
 
 {% block body %}
-    <h1>Create new Rubrique</h1>
+    <h1>Création d'une Rubrique</h1>
 
     {{ include('rubrique/_form.html.twig') }}
 
-    <a href="{{ path('app_rubrique_index') }}">back to list</a>
+    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_index') }}">Retour</a></button>
 {% endblock %}

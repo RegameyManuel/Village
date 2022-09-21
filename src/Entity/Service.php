@@ -138,4 +138,10 @@ class Service
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->serv_nom;
+    }
+
 }

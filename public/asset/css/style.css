@@ -1,22 +1,50 @@
+* {
+    --m-blanc: white;
+    --m-grenat: rgb(151, 21, 21);
+    --m-ombre: #333;
+    --m-gris: #bbb;
+    --m-sombre: #4f4f4f;
+    --m-noir: #000;
+    --m-button: rgba(221, 171, 130, 0.37);
+    --m-bleu: blue;
+    --m-background1: #ffddbc;
+    --m-background2: rgb(187, 247, 187);
+    --m-title: #453117;
+    --m-vert: green;
+    --m-vertclair: lightgreen;
+}
+
+.logo_village {
+    background-color: var(--m-background1);
+    text-align: center;
+}
+
 body {
-    background-color: #ffddbc;
+    background-color: var(--m-blanc);
+}
+
+.btn a{
+    color: var(--m-noir);
+}
+
+a {
+    color: var(--m-vert);
 }
 
 h1,
 p {
-    color: #453117;
+    color: var(--m-title);
 }
 
 .form-control {
-    background-color: rgb(187, 247, 187);
+    background-color: var(--m-background2);
 }
 
-a {
-    color: green;
-}
 
-.logo_village {
-    text-align: center;
+
+.cargo {
+    margin-left: 2em;
+    margin-right: 2em;
 }
 
 ul.horizontal {
@@ -25,9 +53,27 @@ ul.horizontal {
     align-content: center;
     margin-left: 2em;
     margin-right: 2em;
-    background-color: lightgreen;
-    color: green;
+    background-color: var(--m-vertclair);
+    color: var(--m-vert);
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+.fiche_obj {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    margin-left: 5em;
+    margin-right: 5em;
+}
+
+.fiche_obj table{
+    width: 50%;
+}
+
+.photo-catalogue img {
+    width: auto;
+    height: 500px;
 }

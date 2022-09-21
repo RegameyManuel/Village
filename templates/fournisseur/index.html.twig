@@ -1,57 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fournisseur index{% endblock %}
+{% block title %}
+  Fournisseur index
+{% endblock %}
 
 {% block body %}
+  <div class="cargo">
     <h1>Fournisseur index</h1>
 
     <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fourni_societe</th>
-                <th>Fourni_nom</th>
-                <th>Fourni_prenom</th>
-                <th>Fourni_telephone</th>
-                <th>Fourni_mail</th>
-                <th>Fourni_adresse</th>
-                <th>Fourni_cp</th>
-                <th>Fourni_ville</th>
-                <th>Fourni_region</th>
-                <th>Fourni_pays</th>
-                <th>Fourni_constructeur</th>
-                <th>Fourni_importateur</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Fourni_societe</th>
+          <th>Fourni_nom</th>
+          <th>Fourni_prenom</th>
+          <th>Fourni_telephone</th>
+          <th>Fourni_mail</th>
+          <th>Fourni_adresse</th>
+          <th>Fourni_cp</th>
+          <th>Fourni_ville</th>
+          <th>Fourni_region</th>
+          <th>Fourni_pays</th>
+          <th>Fourni_constructeur</th>
+          <th>Fourni_importateur</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for fournisseur in fournisseurs %}
-            <tr>
-                <td>{{ fournisseur.id }}</td>
-                <td>{{ fournisseur.fourniSociete }}</td>
-                <td>{{ fournisseur.fourniNom }}</td>
-                <td>{{ fournisseur.fourniPrenom }}</td>
-                <td>{{ fournisseur.fourniTelephone }}</td>
-                <td>{{ fournisseur.fourniMail }}</td>
-                <td>{{ fournisseur.fourniAdresse }}</td>
-                <td>{{ fournisseur.fourniCp }}</td>
-                <td>{{ fournisseur.fourniVille }}</td>
-                <td>{{ fournisseur.fourniRegion }}</td>
-                <td>{{ fournisseur.fourniPays }}</td>
-                <td>{{ fournisseur.fourniConstructeur ? 'Yes' : 'No' }}</td>
-                <td>{{ fournisseur.fourniImportateur ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('app_fournisseur_show', {'id': fournisseur.id}) }}">show</a>
-                    <a href="{{ path('app_fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>
-                </td>
-            </tr>
+          <tr>
+            <td>{{ fournisseur.id }}</td>
+            <td>{{ fournisseur.fourniSociete }}</td>
+            <td>{{ fournisseur.fourniNom }}</td>
+            <td>{{ fournisseur.fourniPrenom }}</td>
+            <td>{{ fournisseur.fourniTelephone }}</td>
+            <td>{{ fournisseur.fourniMail }}</td>
+            <td>{{ fournisseur.fourniAdresse }}</td>
+            <td>{{ fournisseur.fourniCp }}</td>
+            <td>{{ fournisseur.fourniVille }}</td>
+            <td>{{ fournisseur.fourniRegion }}</td>
+            <td>{{ fournisseur.fourniPays }}</td>
+            <td>{{ fournisseur.fourniConstructeur ? 'Yes' : 'No' }}</td>
+            <td>{{ fournisseur.fourniImportateur ? 'Yes' : 'No' }}</td>
+            <td>
+              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_show', { id: fournisseur.id }) }}">Détail</a></button>
+              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_edit', { id: fournisseur.id }) }}">Éditer</a></button>
+            </td>
+          </tr>
         {% else %}
-            <tr>
-                <td colspan="14">no records found</td>
-            </tr>
+          <tr>
+            <td colspan="14">no records found</td>
+          </tr>
         {% endfor %}
-        </tbody>
+      </tbody>
     </table>
+  </div>
 
-    <a href="{{ path('app_fournisseur_new') }}">Create new</a>
+  <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_new') }}">Nouveau Fournisseur</a></button>
 {% endblock %}

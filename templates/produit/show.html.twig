@@ -1,58 +1,71 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit{% endblock %}
+{% block title %}
+  Produit
+{% endblock %}
 
 {% block body %}
+  <div class="cargo">
     <h1>Produit</h1>
 
-    <table class="table">
-        <tbody>
+    <ul class="fiche_obj">
+      <li>
+        <table class="table">
+          <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
+              <th>Id</th>
+              <td>{{ produit.id }}</td>
             </tr>
             <tr>
-                <th>Prod_marque</th>
-                <td>{{ produit.prodMarque }}</td>
+              <th>Prod_marque</th>
+              <td>{{ produit.prodMarque }}</td>
             </tr>
             <tr>
-                <th>Prod_modele</th>
-                <td>{{ produit.prodModele }}</td>
+              <th>Prod_modele</th>
+              <td>{{ produit.prodModele }}</td>
             </tr>
             <tr>
-                <th>Prod_finition</th>
-                <td>{{ produit.prodFinition }}</td>
+              <th>Prod_finition</th>
+              <td>{{ produit.prodFinition }}</td>
             </tr>
             <tr>
-                <th>Prod_lib_court</th>
-                <td>{{ produit.prodLibCourt }}</td>
+              <th>Prod_lib_court</th>
+              <td>{{ produit.prodLibCourt }}</td>
             </tr>
             <tr>
-                <th>Prod_lib_long</th>
-                <td>{{ produit.prodLibLong }}</td>
+              <th>Prod_lib_long</th>
+              <td>{{ produit.prodLibLong }}</td>
             </tr>
             <tr>
-                <th>Prod_prix</th>
-                <td>{{ produit.prodPrix }}</td>
+              <th>Prod_prix</th>
+              <td>{{ produit.prodPrix }}</td>
             </tr>
             <tr>
-                <th>Prod_photo</th>
-                <td>{{ produit.prodPhoto }}</td>
+              <th>Prod_photo</th>
+              <td>{{ produit.prodPhoto }}</td>
             </tr>
             <tr>
-                <th>Prod_actif</th>
-                <td>{{ produit.prodActif ? 'Oui' : 'Non' }}</td>
+              <th>Prod_actif</th>
+              <td>{{ produit.prodActif ? 'Oui' : 'Non' }}</td>
             </tr>
             <tr>
-                <th>Prod_reference</th>
-                <td>{{ produit.prodReference }}</td>
+              <th>Prod_reference</th>
+              <td>{{ produit.prodReference }}</td>
             </tr>
-        </tbody>
-    </table>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        <div class="photo-catalogue">
+          <img src="/asset/media/catalogue/{{ produit.prodPhoto }}" alt="{{ produit.prodPhoto }}" />
+        </div>
+      </li>
+    </ul>
 
-    <a href="{{ path('app_produit_index') }}">back to list</a>
+    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_index') }}">Retour</a></button>
 
-    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_edit', { id: produit.id }) }}">Édition</a></button>
 
     {{ include('produit/_delete_form.html.twig') }}
+  </div>
 {% endblock %}

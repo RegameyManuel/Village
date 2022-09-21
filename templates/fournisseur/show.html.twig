@@ -3,8 +3,11 @@
 {% block title %}Fournisseur{% endblock %}
 
 {% block body %}
+  <div class="cargo">
     <h1>Fournisseur</h1>
 
+    <ul class="fiche_obj">
+      
     <table class="table">
         <tbody>
             <tr>
@@ -62,9 +65,14 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_fournisseur_index') }}">back to list</a>
 
-    <a href="{{ path('app_fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>
+    </ul>
+
+    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_index') }}">Retour</a></button>
+
+    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_edit', { 'id': fournisseur.id }) }}">Édition</a></button>
 
     {{ include('fournisseur/_delete_form.html.twig') }}
+  </div>
+
 {% endblock %}

@@ -1,51 +1,55 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit index{% endblock %}
+{% block title %}
+  Produit index
+{% endblock %}
 
 {% block body %}
+  <div class="cargo">
     <h1>Produit index</h1>
 
     <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Prod_marque</th>
-                <th>Prod_modele</th>
-                <th>Prod_finition</th>
-                <th>Prod_lib_court</th>
-                <th>Prod_lib_long</th>
-                <th>Prod_prix</th>
-                <th>Prod_photo</th>
-                <th>Prod_actif</th>
-                <th>Prod_reference</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Prod_marque</th>
+          <th>Prod_modele</th>
+          <th>Prod_finition</th>
+          <th>Prod_lib_court</th>
+          <th>Prod_lib_long</th>
+          <th>Prod_prix</th>
+          <th>Prod_photo</th>
+          <th>Prod_actif</th>
+          <th>Prod_reference</th>
+          <th>actions</th>
+        </tr>
+      </thead>
+      <tbody>
         {% for produit in produits %}
-            <tr>
-                <td>{{ produit.id }}</td>
-                <td>{{ produit.prodMarque }}</td>
-                <td>{{ produit.prodModele }}</td>
-                <td>{{ produit.prodFinition }}</td>
-                <td>{{ produit.prodLibCourt }}</td>
-                <td>{{ produit.prodLibLong }}</td>
-                <td>{{ produit.prodPrix }}</td>
-                <td>{{ produit.prodPhoto }}</td>
-                <td>{{ produit.prodActif ? 'Oui' : 'Non' }}</td>
-                <td>{{ produit.prodReference }}</td>
-                <td>
-                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}">détail</a>
-                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">éditer</a>
-                </td>
-            </tr>
+          <tr>
+            <td>{{ produit.id }}</td>
+            <td>{{ produit.prodMarque }}</td>
+            <td>{{ produit.prodModele }}</td>
+            <td>{{ produit.prodFinition }}</td>
+            <td>{{ produit.prodLibCourt }}</td>
+            <td>{{ produit.prodLibLong }}</td>
+            <td>{{ produit.prodPrix }}</td>
+            <td>{{ produit.prodPhoto }}</td>
+            <td>{{ produit.prodActif ? 'Oui' : 'Non' }}</td>
+            <td>{{ produit.prodReference }}</td>
+            <td>
+              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_show', { id: produit.id }) }}">Détail</a></button>
+              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_edit', { id: produit.id }) }}">Éditer</a></button>
+            </td>
+          </tr>
         {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
+          <tr>
+            <td colspan="11">Aucun produit en base</td>
+          </tr>
         {% endfor %}
-        </tbody>
+      </tbody>
     </table>
+  </div>
 
-    <a href="{{ path('app_produit_new') }}">Nouvel article</a>
+  <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_new') }}">Nouvel article</a></button>
 {% endblock %}

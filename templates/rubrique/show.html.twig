@@ -1,26 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rubrique{% endblock %}
+{% block title %}
+  Rubrique
+{% endblock %}
 
 {% block body %}
+  <div class="cargo">
     <h1>Rubrique</h1>
 
-    <table class="table">
+    <ul class="fiche_obj">
+      <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ rubrique.id }}</td>
-            </tr>
-            <tr>
-                <th>Rubriq_nom</th>
-                <td>{{ rubrique.rubriqNom }}</td>
-            </tr>
+          <tr>
+            <th>Id</th>
+            <td>{{ rubrique.id }}</td>
+          </tr>
+          <tr>
+            <th>Rubriq_nom</th>
+            <td>{{ rubrique.rubriqNom }}</td>
+          </tr>
         </tbody>
-    </table>
+      </table>
+    </ul>
 
-    <a href="{{ path('app_rubrique_index') }}">back to list</a>
+    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_index') }}">Retour</a></button>
 
-    <a href="{{ path('app_rubrique_edit', {'id': rubrique.id}) }}">edit</a>
+    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_edit', { id: rubrique.id }) }}">Édition</a></button>
 
     {{ include('rubrique/_delete_form.html.twig') }}
+  </div>
 {% endblock %}
