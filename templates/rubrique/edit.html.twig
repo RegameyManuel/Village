@@ -5,11 +5,11 @@
 {% endblock %}
 
 {% block body %}
-  <h1>Édition Rubrique</h1>
+  <h3>Édition Rubrique</h3>
 
   {{ include('rubrique/_form.html.twig', { button_label: 'Mise à jour' }) }}
 
-  <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_index') }}">Retour</a></button>
+  <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_index') }}">Retour</a>
 
   {{ include('rubrique/_delete_form.html.twig') }}
 {% endblock %}

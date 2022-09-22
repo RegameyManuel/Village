@@ -75,4 +75,15 @@ class RubriqueController extends AbstractController
 
         return $this->redirectToRoute('app_rubrique_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    #[Route('/{rubriq_enfants}', name: 'app_rubrique_orphan', methods: ['POST'])]
+    public function orphan(Request $request, Rubrique $rubrique, RubriqueRepository $rubriqueRepository): Response
+    {
+        if ($this->isCsrfTokenValid('orphan'.$rubrique->getRubriqEnfants(), $request->request->get('_token'))) {
+            $rubriqueRepository->removeRubriqEnfant($rubrique, true);
+        }
+
+        return $this->redirectToRoute('app_rubrique_index', [], Response::HTTP_SEE_OTHER);
+    }
+
 }

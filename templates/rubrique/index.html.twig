@@ -6,7 +6,7 @@
 
 {% block body %}
   <div class="cargo">
-    <h1>Rubrique index</h1>
+    <h3>Rubrique index</h3>
 
     <table class="table">
       <thead>
@@ -22,8 +22,8 @@
             <td>{{ rubrique.id }}</td>
             <td>{{ rubrique.rubriqNom }}</td>
             <td>
-              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_show', { id: rubrique.id }) }}">Détail</a></button>
-              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_edit', { id: rubrique.id }) }}">Éditer</a></button>
+              <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_show', { id: rubrique.id }) }}">Détail</a>
+              <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_edit', { id: rubrique.id }) }}">Éditer</a>
             </td>
           </tr>
         {% else %}
@@ -35,5 +35,5 @@
     </table>
   </div>
 
-  <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_new') }}">Nouvelle Rubrique</a></button>
+  <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_new') }}">Nouvelle Rubrique</a>
 {% endblock %}

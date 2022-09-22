@@ -34,19 +34,19 @@
 
 		<ul class="horizontal">
 			<li>
-				<a href={{ path('app_accueil') }}>Accueil</a>
+				<a class="adminlink" href={{ path('app_accueil') }}>Accueil</a>
 			</li>
 			<li>
-				<a href={{ path('app_rubrique_index') }}>Rubriques</a>
+				<a class="adminlink" href={{ path('app_rubrique_index') }}>Rubriques</a>
 			</li>	
 			<li>
-				<a href={{ path('app_produit_index') }}>Produits</a>
+				<a class="adminlink" href={{ path('app_produit_index') }}>Produits</a>
 			</li>
 			<li>
-				<a href={{ path('app_fournisseur_index') }}>Fournisseurs</a>
+				<a class="adminlink" href={{ path('app_fournisseur_index') }}>Fournisseurs</a>
 			</li>
 			<li>
-				<a href={{ path('app_fournisseur_index') }}>Fournisseurs</a>
+				<a class="adminlink" href={{ path('app_fournisseur_index') }}>Fournisseurs</a>
 			</li>
 		</ul> 
 
@@ -69,7 +69,7 @@
             <a class="nav-link active" aria-current="page" href="#">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Catalogue</a>
+            <a class="nav-link active" href="{{ path('app_catalogue') }}">Catalogue</a> 
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>

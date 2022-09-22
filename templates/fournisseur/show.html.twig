@@ -6,7 +6,7 @@
 
 {% block body %}
   <div class="cargo">
-    <h1>Fournisseur</h1>
+    <h3>Fournisseur</h3>
 
     <ul class="fiche_obj">
       <table class="table">
@@ -67,9 +67,9 @@
       </table>
     </ul>
 
-    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_index') }}">Retour</a></button>
+    <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_fournisseur_index') }}">Retour</a>
 
-    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_edit', { id: fournisseur.id }) }}">Édition</a></button>
+    <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_fournisseur_edit', { id: fournisseur.id }) }}">Édition</a>
 
     {{ include('fournisseur/_delete_form.html.twig') }}
   </div>

@@ -3,9 +3,9 @@
 {% block title %}Nouvelle Rubrique{% endblock %}
 
 {% block body %}
-    <h1>Création d'une Rubrique</h1>
+    <h3>Création d'une Rubrique</h3>
 
     {{ include('rubrique/_form.html.twig') }}
 
-    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_index') }}">Retour</a></button>
+    <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_index') }}">Retour</a>
 {% endblock %}

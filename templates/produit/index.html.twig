@@ -6,7 +6,7 @@
 
 {% block body %}
   <div class="cargo">
-    <h1>Produit index</h1>
+    <h3>Produit index</h3>
 
     <table class="table">
       <thead>
@@ -38,8 +38,8 @@
             <td>{{ produit.prodActif ? 'Oui' : 'Non' }}</td>
             <td>{{ produit.prodReference }}</td>
             <td>
-              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_show', { id: produit.id }) }}">Détail</a></button>
-              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_edit', { id: produit.id }) }}">Éditer</a></button>
+              <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_produit_show', { id: produit.id }) }}">Détail</a>
+              <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_produit_edit', { id: produit.id }) }}">Éditer</a>
             </td>
           </tr>
         {% else %}
@@ -51,5 +51,5 @@
     </table>
   </div>
 
-  <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_produit_new') }}">Nouvel article</a></button>
+  <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_produit_new') }}">Nouvel article</a>
 {% endblock %}

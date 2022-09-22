@@ -6,7 +6,7 @@
 
 {% block body %}
   <div class="cargo">
-    <h1>Rubrique</h1>
+    <h3>Rubrique</h3>
 
     <ul class="fiche_obj">
       <table class="table">
@@ -23,13 +23,25 @@
             <th>Rubriq_parente</th>
             <td>{{ rubrique.getRubriqParente() }}</td>
           </tr>
+
+          <th>Rubriq_enfants</th>
+          {% for rubriq_enfants in rubrique.getRubriqEnfants %}
+            <tr>
+              <td>{{ rubriq_enfants.rubriqNom }}</td>
+              {# <td> {{ include('rubrique/_delete_enfant_form.html.twig') }}</td> #}
+            </tr>
+          {% else %}
+            <tr>
+              <td colspan="3">Aucune rubrique enfant</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
     </ul>
 
-    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_index') }}">Retour</a></button>
+    <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_index') }}">Retour</a>
 
-    <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_rubrique_edit', { id: rubrique.id }) }}">Édition</a></button>
+    <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_edit', { id: rubrique.id }) }}">Édition</a>
 
     {{ include('rubrique/_delete_form.html.twig') }}
   </div>

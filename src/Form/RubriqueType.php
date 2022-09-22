@@ -14,6 +14,7 @@ class RubriqueType extends AbstractType
         $builder
             ->add('rubriq_nom')
             ->add('rubriq_parente')
+            ->add('rubriq_enfants')
         ;
     }
 

@@ -6,7 +6,7 @@
 
 {% block body %}
   <div class="cargo">
-    <h1>Fournisseur index</h1>
+    <h3>Fournisseur index</h3>
 
     <table class="table">
       <thead>
@@ -44,8 +44,8 @@
             <td>{{ fournisseur.fourniConstructeur ? 'Yes' : 'No' }}</td>
             <td>{{ fournisseur.fourniImportateur ? 'Yes' : 'No' }}</td>
             <td>
-              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_show', { id: fournisseur.id }) }}">Détail</a></button>
-              <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_edit', { id: fournisseur.id }) }}">Éditer</a></button>
+              <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_fournisseur_show', { id: fournisseur.id }) }}">Détail</a>
+              <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_fournisseur_edit', { id: fournisseur.id }) }}">Éditer</a>
             </td>
           </tr>
         {% else %}
@@ -57,5 +57,5 @@
     </table>
   </div>
 
-  <button type="btn" class="btn btn-success bg-gradient btn-sm"><a href="{{ path('app_fournisseur_new') }}">Nouveau Fournisseur</a></button>
+  <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_fournisseur_new') }}">Nouveau Fournisseur</a>
 {% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Catalogue
+{% endblock %}
+
+{% block body %}
+  {% for produit in produits %}
+    <div class="cargo">
+      <div class="fiche_titre">
+        <h3>{{ produit.prodMarque }}</h3>
+        <h4>{{ produit.prodModele }}</h4>
+      </div>
+      <div class="row">
+      <ul class="fiche_obj">
+        <li class="col1">
+          <table class="table">
+            <tbody>
+
+              <tr>
+                <th>Marque</th>
+                <td>{{ produit.prodMarque }}</td>
+              </tr>
+              <tr>
+                <th>Modèle</th>
+                <td>{{ produit.prodModele }}</td>
+              </tr>
+              <tr>
+                <th>Finition</th>
+                <td>{{ produit.prodFinition }}</td>
+              </tr>
+              <tr>
+                <th><h5>{{ produit.prodLibCourt }}</h5></th>
+                <td>{{ produit.prodLibLong }}</td>
+              </tr>
+              <tr>
+                <th>Prod_prix</th>
+                <td>{{ produit.prodPrix }} €</td>
+              </tr>
+              <tr>
+                <th>Prod_reference</th>
+                <td>{{ produit.prodReference }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li class="col2">
+          <div class="photo-catalogue">
+            <img src="/asset/media/catalogue/{{ produit.prodPhoto }}" alt="{{ produit.prodPhoto }}" />
+          </div>
+        </li>
+      </ul>
+      </div>
+      </div>
+      
+    </div>
+  {% else %}
+    <tr>
+      <td colspan="3">Aucun article trouvé</td>
+    </tr>
+  {% endfor %}
+{% endblock %}
