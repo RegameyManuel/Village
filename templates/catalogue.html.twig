@@ -11,12 +11,11 @@
         <h3>{{ produit.prodMarque }}</h3>
         <h4>{{ produit.prodModele }}</h4>
       </div>
+
       <div class="row">
-      <ul class="fiche_obj">
-        <li class="col1">
+        <div class="col col-lg-8">
           <table class="table">
             <tbody>
-
               <tr>
                 <th>Marque</th>
                 <td>{{ produit.prodMarque }}</td>
@@ -30,7 +29,9 @@
                 <td>{{ produit.prodFinition }}</td>
               </tr>
               <tr>
-                <th><h5>{{ produit.prodLibCourt }}</h5></th>
+                <th>
+                  <h5>{{ produit.prodLibCourt }}</h5>
+                </th>
                 <td>{{ produit.prodLibLong }}</td>
               </tr>
               <tr>
@@ -43,14 +44,14 @@
               </tr>
             </tbody>
           </table>
-        </li>
-        <li class="col2">
+        </div>
+
+        <div class="col col-lg-4">
           <div class="photo-catalogue">
             <img src="/asset/media/catalogue/{{ produit.prodPhoto }}" alt="{{ produit.prodPhoto }}" />
           </div>
-        </li>
-      </ul>
-      </div>
+        </div>
+
       </div>
       
     </div>
