@@ -6,9 +6,6 @@
 
 		<ul class="horizontal">
 			<li>
-				<a class="adminlink" href={{ path('app_accueil') }}>Accueil</a>
-			</li>
-			<li>
 				<a class="adminlink" href={{ path('app_rubrique_index') }}>Rubriques</a>
 			</li>	
 			<li>
@@ -17,8 +14,8 @@
 			<li>
 				<a class="adminlink" href={{ path('app_fournisseur_index') }}>Fournisseurs</a>
 			</li>
-			<li>
-				<a class="adminlink" href={{ path('app_fournisseur_index') }}>Fournisseurs</a>
+      <li>
+				<a class="adminlink" href={{ path('app_service_index') }}>Services</a>
 			</li>
 		</ul> 
 
@@ -29,16 +26,16 @@
 
 		<!--*********************************************************************************************************************-->
 
-<nav class="navbar navbar-expand-sm navbar-dark bg-success bg-gradient" aria-label="Third navbar example">
+<nav class="navbar navbar-expand-sm navbar-dark bg-success bg-gradient">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Menu navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExample03">
+      <div class="collapse navbar-collapse" id="navbar-menu">
         <ul class="navbar-nav me-auto mb-2 mb-sm-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+            <a class="nav-link active" aria-current="page" href={{ path('app_accueil') }}>Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{ path('app_catalogue') }}">Catalogue</a> 

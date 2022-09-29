@@ -50,6 +50,8 @@ Charge les fixtures: `php bin/console doctrine:fixtures:load`
 
 `symfony console make:auth`
 
+`composer require symfonycasts/verify-email-bundle`
+
 `symfony console make:security` ??? pas la bonne commande
 
 `symfony console make:registration-form`

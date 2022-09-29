@@ -32,10 +32,13 @@ a {
     text-decoration: none;
 }
 
+
 /* Liens pour administration dans base.html.twig */
 .adminlink {
     color: var(--m-noir);
 }
+
+/*************************************************/
 
 h1,
 p {
@@ -64,6 +67,10 @@ p {
     color: var(--m-noir);
 }
 
+ul {
+    list-style-type: none;
+}
+
 ul.horizontal {
     display: flex;
     justify-content: space-around;
@@ -72,16 +79,17 @@ ul.horizontal {
     margin-right: 2em;
     background-color: var(--m-vertclair);
     color: var(--m-vert);
-    list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.fiche_titre {
+/******************* Catalogue */
+
+.fiche-titre {
     margin-left: 2em;
 }
 
-.photo-catalogue  {
+.photo-catalogue {
     text-align: center;
 }
 
@@ -91,3 +99,5 @@ ul.horizontal {
     width: auto;
     height: 30em;
 }
+
+/*******************************/
