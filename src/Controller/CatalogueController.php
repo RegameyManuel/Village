@@ -13,28 +13,21 @@ class CatalogueController extends AbstractController
     #[Route('/catalogue/{id}', name: 'app_catalogue_actif', methods: ['GET'])]
     public function indexcat(ProduitRepository $produitRepository, RubriqueRepository $rubriqueRepository, $id): Response
     {
-        
-        
         return $this->render('catalogue.html.twig', [
             'produits' => $produitRepository->findAll(),
             'rubriques' => $rubriqueRepository->findAll(),
             'id' => $id,
             ]);
-
     }
 
 
     #[Route('/catalogue', name: 'app_catalogue')]
         public function index(ProduitRepository $produitRepository, RubriqueRepository $rubriqueRepository): Response
         {
-            
-            
             return $this->render('catalogue.html.twig', [
                 'produits' => $produitRepository->findAll(),
                 'rubriques' => $rubriqueRepository->findAll(),
                 'id' => null,
                 ]);
-    
         }
-
 }

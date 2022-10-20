@@ -11,16 +11,16 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Id</th>
           <th>Rubriq_nom</th>
+          <th>Rubrique parente</th>
           <th>actions</th>
         </tr>
       </thead>
       <tbody>
         {% for rubrique in rubriques %}
           <tr>
-            <td>{{ rubrique.id }}</td>
             <td>{{ rubrique.rubriqNom }}</td>
+            <td>{{ rubrique.getRubriqParente() }}</td>
             <td>
               <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_show', { id: rubrique.id }) }}">Détail</a>
               <a class="btn btn-success bg-gradient btn-sm" href="{{ path('app_rubrique_edit', { id: rubrique.id }) }}">Éditer</a>

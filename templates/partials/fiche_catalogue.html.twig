@@ -1,0 +1,58 @@
+  {% for produit in produits %}
+    {% if produit.getProdRubrique == id %}
+      <div class="cargo">
+        <div class="fiche-titre">
+          <h3>{{ produit.prodMarque }}</h3>
+          <h4>{{ produit.prodModele }}</h4>
+        </div>
+
+        <div class="row">
+          <div class="col col-lg-8">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Marque</th>
+                  <td>{{ produit.prodMarque }}</td>
+                </tr>
+                <tr>
+                  <th>Modèle</th>
+                  <td>{{ produit.prodModele }}</td>
+                </tr>
+                <tr>
+                  <th>Finition</th>
+                  <td>{{ produit.prodFinition }}</td>
+                </tr>
+                <tr>
+                  <th>
+                    <h5>{{ produit.prodLibCourt }}</h5>
+                  </th>
+                  <td>{{ produit.prodLibLong }}</td>
+                </tr>
+                <tr>
+                  <th>Prod_prix</th>
+                  <td>{{ produit.prodPrix }} €</td>
+                </tr>
+                <tr>
+                  <th>Prod_reference</th>
+                  <td>{{ produit.prodReference }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="container">
+              <div class="row justify-content-end">
+                <div class="col-2">
+                  <a class="btn btn-success bg-gradient btn-lg" href="#">Ajouter</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-lg-4">
+            <div class="photo-catalogue">
+              <img src="/asset/media/catalogue/{{ produit.prodPhoto }}" alt="{{ produit.prodPhoto }}" />
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
